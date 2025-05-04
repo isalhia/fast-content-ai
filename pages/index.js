@@ -17,11 +17,10 @@ export default function Home() {
       const res = await fetch(endpoint, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify({ prompt }),
+        body: JSON.stringify({ prompt })
       });
-
       const text = await res.text();
       setOutput(text);
     } catch (err) {
@@ -40,80 +39,48 @@ export default function Home() {
           alt="Fast Films Logo"
           width={120}
           height={120}
-          className="logo"
         />
-        <input
-          id="prompt"
-          className="prompt-input"
-          placeholder="Type your cinematic prompt here..."
-        />
-        <div className="button-group">
+        <input id="prompt" placeholder="Type your cinematic prompt..." />
+        <div className="buttons">
           <button onClick={() => callApi("/api/storyline")}>Start Storyline</button>
           <button onClick={() => callApi("/api/summary")}>Generate Summary</button>
           <button onClick={() => callApi("/api/script")}>Generate Script</button>
           <button onClick={() => callApi("/api/storyboard")}>Create Storyboard</button>
         </div>
-        <div className="output">
-          <pre>{output}</pre>
-        </div>
-        <div className="footer">
-          Powered by Fast Films —
-          <span className="tagline"> Let us tell your story.</span>
+        <pre>{output}</pre>
+        <p className="footer">
+          Powered by Fast Films — <em>Let us tell your story.</em>
           <span className="dot" />
-        </div>
+        </p>
       </div>
       <style jsx>{`
         .container {
+          background: #000;
+          color: #fff;
           display: flex;
           flex-direction: column;
           align-items: center;
           justify-content: center;
           min-height: 100vh;
-          background-color: #000;
-          color: #fff;
           padding: 2rem;
-          text-align: center;
         }
-        .logo {
-          margin-bottom: 1rem;
-        }
-        .prompt-input {
-          width: 100%;
-          max-width: 500px;
-          padding: 10px;
+        input {
           margin: 1rem 0;
-          font-size: 1.1rem;
-          border-radius: 8px;
+          padding: 0.5rem;
+          width: 300px;
         }
-        .button-group button {
-          background-color: #222;
-          color: #fff;
-          padding: 0.75rem 1.5rem;
+        .buttons button {
           margin: 0.5rem;
+          padding: 0.75rem 1.5rem;
+          background: #111;
+          color: #fff;
           border: none;
           border-radius: 8px;
           cursor: pointer;
-          font-size: 1rem;
-          transition: 0.3s ease;
-        }
-        .button-group button:hover {
-          background-color: #333;
-        }
-        .output {
-          white-space: pre-wrap;
-          background-color: #111;
-          padding: 1rem;
-          margin-top: 1rem;
-          max-width: 700px;
-          border-radius: 10px;
         }
         .footer {
           margin-top: 2rem;
           font-size: 0.9rem;
-        }
-        .tagline {
-          font-style: italic;
-          margin-left: 5px;
         }
         .dot {
           display: inline-block;
@@ -122,15 +89,11 @@ export default function Home() {
           background-color: red;
           border-radius: 50%;
           margin-left: 5px;
-          animation: pulse 1.5s infinite;
+          animation: blink 1s infinite;
         }
-        @keyframes pulse {
-          0%, 100% {
-            opacity: 0.6;
-          }
-          50% {
-            opacity: 1;
-          }
+        @keyframes blink {
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 1; }
         }
       `}</style>
     </>
