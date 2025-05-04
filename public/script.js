@@ -1,8 +1,19 @@
 
-document.getElementById("storylineBtn").addEventListener("click", () => callApi("/api/storyline"));
-document.getElementById("summaryBtn").addEventListener("click", () => callApi("/api/summary"));
-document.getElementById("scriptBtn").addEventListener("click", () => callApi("/api/script"));
-document.getElementById("storyboardBtn").addEventListener("click", () => callApi("/api/storyboard"));
+document.getElementById("storylineBtn").addEventListener("click", async () => {
+  await callApi("/api/storyline");
+});
+
+document.getElementById("summaryBtn").addEventListener("click", async () => {
+  await callApi("/api/summary");
+});
+
+document.getElementById("scriptBtn").addEventListener("click", async () => {
+  await callApi("/api/script");
+});
+
+document.getElementById("storyboardBtn").addEventListener("click", async () => {
+  await callApi("/api/storyboard");
+});
 
 async function callApi(endpoint) {
   const prompt = document.getElementById("prompt").value;
