@@ -1,0 +1,51 @@
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+  padding: 2rem;
+}
+.logo {
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+}
+.tagline {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+.red-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  margin-left: 8px;
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+.button-group button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: white;
+  color: black;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+#prompt {
+  width: 80%;
+  padding: 0.5rem;
+  margin: 1rem 0;
+}
+.output-box {
+  margin-top: 2rem;
+  text-align: left;
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 5px;
+}
