@@ -1,19 +1,27 @@
+import Head from "next/head";
+
 export default function Home() {
   return (
-    <main>
+    <>
+      <Head>
+        <title>Fast Content AI Portal</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <div className="container">
         <img src="/fast-films-logo.png" alt="Fast Films Logo" className="logo" />
-        <h1 className="title">Powered by Fast Films — <em>Let us tell your story.</em><span className="dot"></span></h1>
-        <textarea id="prompt" placeholder="Enter your story idea here..."></textarea>
-        <div className="buttons">
-          <button id="storylineBtn">Generate Storyline</button>
-          <button id="summaryBtn">Generate Summary</button>
-          <button id="scriptBtn">Generate Script</button>
-          <button id="storyboardBtn">Generate Storyboard</button>
+        <p className="tagline">
+          Powered by Fast Films — <em>Let us tell your story.</em>
+          <span className="dot"></span>
+        </p>
+        <input type="text" placeholder="Type your story idea…" id="prompt" />
+        <div className="button-container">
+          <button onclick="generateStoryline()">Start Storyline</button>
+          <button onclick="generateSummary()">Generate Summary</button>
+          <button onclick="generateScript()">Generate Script</button>
+          <button onclick="generateStoryboard()">Create Storyboard</button>
         </div>
-        <div id="output"></div>
       </div>
       <script src="/script.js"></script>
-    </main>
+    </>
   );
 }
