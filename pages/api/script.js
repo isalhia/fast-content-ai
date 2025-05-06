@@ -1,1 +1,0 @@
-// Updated script.js content
